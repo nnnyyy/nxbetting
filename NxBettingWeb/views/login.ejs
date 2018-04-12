@@ -8,22 +8,27 @@
 <body>
 Login Page
 <form id="loginform">
+    <input type="text" id="userid" />
+    <input type="text" id='userpw' />
     <input type="submit" value="확인"/>
 </form>
 <script>
     $(document).ready(function(){
         $('#loginform').submit(function(){
-            $.post("/checklogin", {user_id:$('#loginform #user_id').val(), user_pwd:$('#loginform #user_pwd').val(), return_url:'/m/myinfo'}, function(data) {
-                if( data.ret == -1 ) {
-                    // Error
-                }
-                else {
-                    alert('로그인 완료');
-                    location.href = document.referrer;
-                }
-
-            });
-        })
+            $.post("/checklogin", {
+                    user_id:$('#loginform #userid').val(),
+                    user_pw:$('#loginform #userpw').val()
+                }, function(data) {
+                    if( data.ret == -1 ) {
+                        // Error
+                        alert('로그인 실패');
+                    }
+                    else {
+                        alert('로그인 완료');
+                        location.href = '/';
+                    }
+            }, 'json');
+        });
     });
 </script>
 </body>

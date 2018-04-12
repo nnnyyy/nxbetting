@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('index', {session: req.session.user_id });
 });
 router.get('/login', Auth.login );
+router.get('/logout', Auth.logout );
 router.post('/checklogin', Auth.checklogin );
 
 module.exports = router;
