@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+Login Page
+<form id="loginform">
+    <input type="submit" value="확인"/>
+</form>
+<script>
+    $(document).ready(function(){
+        $('#loginform').submit(function(){
+            $.post("/checklogin", {user_id:$('#loginform #user_id').val(), user_pwd:$('#loginform #user_pwd').val(), return_url:'/m/myinfo'}, function(data) {
+                if( data.ret == -1 ) {
+                    // Error
+                }
+                else {
+                    alert('로그인 완료');
+                    location.href = document.referrer;
+                }
+
+            });
+        })
+    });
+</script>
+</body>
+</html>

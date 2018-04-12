@@ -12,7 +12,9 @@
       $(document).ready(function(){
           <% if( !session ) {%>
             window.location.href = '/login';
+            return;
           <%}%>
+          alert('환영합니다');
       });
   </script>
   </body>
