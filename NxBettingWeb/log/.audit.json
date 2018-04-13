@@ -424,6 +424,16 @@
             "date": 1523551404500,
             "name": "log\\exception_2018-04-13.log",
             "hash": "c04eea29dd9373c77c512da1a08de803"
+        },
+        {
+            "date": 1523626649127,
+            "name": "log\\server_2018-04-13.log",
+            "hash": "9bc286757fc02bcf931462c31bf76823"
+        },
+        {
+            "date": 1523626649134,
+            "name": "log\\exception_2018-04-13.log",
+            "hash": "584c8d29b3b836450cc2a4cd18042b40"
         }
     ]
 }
