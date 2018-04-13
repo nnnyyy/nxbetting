@@ -7,14 +7,24 @@
   </head>
   <body>
   <!-- HTML Design -->
+  <% if( session ) {%>
+  <div id="welcome">
+      환영합니다.
+      <input type="button" id='btn_enter'value="입장"/>
+      <input type="button" id='btn_logout' value="로그아웃"/>
+  </div>
+  <%}%>
   <!-- Script -->
   <script>
       $(document).ready(function(){
           <% if( !session ) {%>
             window.location.href = '/login';
             return;
+          <%} else {%>
+            $('#btn_logout').click(function(e){
+                window.location.href = '/logout';
+            })
           <%}%>
-          alert('환영합니다');
       });
   </script>
   </body>

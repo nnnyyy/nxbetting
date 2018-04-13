@@ -15,19 +15,22 @@ Login Page
 <script>
     $(document).ready(function(){
         $('#loginform').submit(function(){
-            $.post("/checklogin", {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify({
                     user_id:$('#loginform #userid').val(),
                     user_pw:$('#loginform #userpw').val()
-                }, function(data) {
-                    if( data.ret == -1 ) {
-                        // Error
-                        alert('로그인 실패');
-                    }
-                    else {
-                        alert('로그인 완료');
-                        location.href = '/';
-                    }
-            }, 'json');
+                }),
+                contentType: 'application/json',
+                url: '/checklogin',
+                success: function(data) {
+                     window.location.href = window.document.referrer;
+                }
+            });
+
+            return true;
         });
     });
 </script>

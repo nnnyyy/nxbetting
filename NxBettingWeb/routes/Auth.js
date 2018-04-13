@@ -17,23 +17,19 @@ exports.checklogin = function( req, res, next) {
     Log.logger.debug('Check Login ' + req.body.user_id + ' : ' + req.body.user_pw);
     try {
         dbhelper.CheckLogin(req.body.user_id, req.body.user_pw, function(dbret) {
-            res.send({ret: 0});
-            /*
             if(dbret != 0) {
                 req.session.user_id = null;
-                res.send( { ret: -1 } );
+                res.json( { ret: -1 } );
                 return;
             }
 
             req.session.user_id = req.body.user_id;
             Log.logger.debug('session id : ' + req.session.user_id);
-            res.send( { ret: 0 } );
-            return;
-            */
-        })
+            res.send({ret:0});
+        });
     }catch(err) {
         req.session.user_id = null;
         Log.logger.debug('error : ' + err);
-        res.send( {ret: -2} );
+        res.json( {ret: -2} );
     }
 }
