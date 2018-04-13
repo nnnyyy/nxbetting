@@ -17,3 +17,14 @@ exports.CheckLogin = function(_id, _pw, cb) {
         cb(0);
     })
 }
+
+exports.GetList = function(cb) {
+    data = {}
+
+    data.list = [
+        {sn: 0, home: 'www', away: 'kkk', home_rate: 187, away_rate: 174, regdate: '2018-04-13 6:00:00', betlimitdate: '2018-04-13 7:00:00', state: 2 },
+        {sn: 1, home: 'www', away: 'kkk', home_rate: 187, away_rate: 174, regdate: '2018-04-13 10:00:00',betlimitdate: '2018-04-13 7:00:00', state: 0 },
+        {sn: 2, home: 'www', away: 'kkk', home_rate: 187, away_rate: 174, regdate: '2018-04-13 10:00:00', betlimitdate: '2018-04-13 7:00:00', state: 0 }
+    ];
+    cb(data);
+}

@@ -58,6 +58,5 @@ typings/
 .env
 
 
-NxBettingWeb/log/
-
-NxBettingWeb/\.idea/
+log/
+\.idea/
